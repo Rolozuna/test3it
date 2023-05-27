@@ -6,20 +6,38 @@ import {
   Text,
   GestureResponderEvent,
 } from 'react-native';
-import {Card, useTheme} from 'react-native-paper';
+import {Card} from 'react-native-paper';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 export interface CardProps {
+  /**
+   * Titulo del indicador
+   */
   title?: string;
+
+  /**
+   * Function onPresss que te lleva al detalle del indicador
+   */
   onPressIcon?: ((event: GestureResponderEvent) => void) | undefined;
   onPressTitle?: ((event: GestureResponderEvent) => void) | undefined;
+
+  /**
+   * Titulo que se utiliza en el detalle del componente
+   */
   titleDetail?: string;
+
+  /**
+   * Color proporcionado por useTheme
+   */
+  colors?: {
+    black: string;
+    nice_blue: string;
+  };
 }
 
 class CardComponent extends PureComponent<CardProps> {
   render() {
-    const {title, onPressTitle, onPressIcon, titleDetail} = this.props;
-    const {colors} = useTheme();
+    const {title, onPressTitle, onPressIcon, titleDetail, colors} = this.props;
 
     return (
       <Card>
