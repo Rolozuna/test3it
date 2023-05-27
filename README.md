@@ -1,7 +1,5 @@
 # test3it
 
-App: Prueba técnica 3it
-
 ## Instalación
 
 1. Clona este repositorio en tu máquina local.
