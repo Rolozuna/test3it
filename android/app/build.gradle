@@ -1,6 +1,11 @@
 apply plugin: "com.android.application"
 apply plugin: "com.facebook.react"
 
+apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
+project.ext.vectoricons = [
+    iconFontNames: [ 'MaterialCommunityIcons.ttf', 'Ionicons.ttf' , 'Feather.ttf']
+]
+
 import com.android.build.OutputFile
 
 /**
@@ -149,6 +154,7 @@ android {
 }
 
 dependencies {
+    implementation project(':react-native-permissions')
     // The version of react-native is set by the React Native Gradle Plugin
     implementation("com.facebook.react:react-android")
 
