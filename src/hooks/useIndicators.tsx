@@ -47,7 +47,7 @@ const useIndicators = () => {
     } catch (error) {
       if (error.response) {
         // Mostramos una alerta con el mensaje de error
-        showAlert(error.response.data.Mensaje + ' para el ' + indicator);
+        showAlert(`${indicator.toUpperCase()}: ` + error.response.data.Mensaje);
       }
       return null;
     }
