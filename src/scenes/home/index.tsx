@@ -32,7 +32,7 @@ const IndicatorsScreen: React.FC<Props> = ({navigation}) => {
         </View>
       ) : (
         <React.Fragment>
-          {indicatorState.length !== 0 ? (
+          {indicatorState?.length !== 0 ? (
             <View style={styles.container}>
               <Text style={{...styles.contyainerTitle, color: colors.black}}>
                 Indicadores{' '}
@@ -58,7 +58,7 @@ const IndicatorsScreen: React.FC<Props> = ({navigation}) => {
                   }
                 />
               )}
-              {indicatorState.length === 0 && !restrictedAccess && (
+              {indicatorState?.length === 0 && !restrictedAccess && (
                 <EmptyfC
                   titleMsg={'Lo sentimos'}
                   msg={

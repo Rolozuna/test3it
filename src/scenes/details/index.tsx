@@ -49,7 +49,7 @@ const DetailsScreen: React.FC<Props> = ({navigation, route}) => {
             </View>
           ) : (
             <React.Fragment>
-              {valueIndicators.length !== 0 ? (
+              {valueIndicators?.length !== 0 ? (
                 <View style={{width: '100%'}}>
                   <ScrollView>
                     <View>
