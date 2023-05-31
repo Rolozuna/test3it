@@ -15,14 +15,17 @@ const useIndicatorsDetails = indicators => {
   useEffect(() => {
     //Obtenemos la fecha, el  día, el mes para pasarle a la api
     const currentDate = new Date();
-    const day = currentDate.getDate();
-    const month = currentDate.getMonth();
-    const year = currentDate.getFullYear();
+    const dateThirtyDaysAgo = new Date();
+    dateThirtyDaysAgo.setDate(currentDate.getDate() - 30);
+
+    const lastYear = dateThirtyDaysAgo.getFullYear();
+    const lastMonth = dateThirtyDaysAgo.getMonth() + 1;
+    const lastDay = dateThirtyDaysAgo.getDate();
 
     //Url1: url para obtener datos de los ultimos 30 días
-    const url1 = `/${indicators}/posteriores/${year}/${month}/dias/${day}`;
+    const url1 = `/${indicators}/posteriores/${lastYear}/${lastMonth}/dias/${lastDay}`;
     //url2: url para obtener los datos del año en curso
-    const url2 = `/${indicators}/${year}`;
+    const url2 = `/${indicators}/${lastYear}`;
 
     // Definimos la url principal dependiendo del indicador
     const url = indicators === 'ipc' || indicators === 'utm' ? url2 : url1;

@@ -6,6 +6,7 @@ import {useTheme} from 'react-native-paper';
 import EmptyfC from '../../components/EmptyComponent';
 import useIndicators from '../../hooks/useIndicators';
 import CardComponent from '../../components/Card';
+import {ScrollView} from 'react-native-gesture-handler';
 
 interface Props extends StackScreenProps<RootStackParams, 'IndicatorsScreen'> {}
 
@@ -37,16 +38,18 @@ const IndicatorsScreen: React.FC<Props> = ({navigation}) => {
               <Text style={{...styles.contyainerTitle, color: colors.black}}>
                 Indicadores{' '}
               </Text>
-              {indicatorState?.map((item, key) => (
-                <View style={{paddingVertical: 10}} key={key}>
-                  <CardComponent
-                    title={item.currency}
-                    onPressIcon={() => navigateToDetailsScreen(item, 1)}
-                    onPressTitle={() => navigateToDetailsScreen(item, 2)}
-                    colors={colors}
-                  />
-                </View>
-              ))}
+              <ScrollView>
+                {indicatorState?.map((item, key) => (
+                  <View style={{paddingVertical: 10}} key={key}>
+                    <CardComponent
+                      title={item.currency}
+                      onPressIcon={() => navigateToDetailsScreen(item, 1)}
+                      onPressTitle={() => navigateToDetailsScreen(item, 2)}
+                      colors={colors}
+                    />
+                  </View>
+                ))}
+              </ScrollView>
             </View>
           ) : (
             <React.Fragment>
